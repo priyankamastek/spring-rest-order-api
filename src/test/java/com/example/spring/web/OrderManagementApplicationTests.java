@@ -9,5 +9,14 @@ class OrderManagementApplicationTests {
 	@Test
 	void contextLoads() {
 	}
+   @Test()
+	void test1(){
+		System.out.println("Running Test1");
+		
+	}
 
+	@Test()
+	void test2(){
+		System.out.println("Running Test 2");
+	}
 }
