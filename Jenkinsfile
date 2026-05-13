@@ -8,6 +8,10 @@ pipeline{
     jdk 'jdk_17'
  }
 
+  environment {
+   IMAGE_NAME = 'priya123456/order-api'
+  }  
+
   stages{
       stage ('Verify versions'){
         steps {
@@ -54,6 +58,10 @@ pipeline{
      stage('Creating Docker Image'){
         steps{
             sh 'echo "========Creating Docker Image ==========="'
+              sh """
+                     echo "IMAGE Name is - ${IMAGE_NAME}"
+                     docker build -t $IMAGE_NAME:"${env.BUILD_NUMBER}" .
+                 """      
              sh 'echo "======Completing Image Creation ====="'
           }
       }
